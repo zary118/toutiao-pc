@@ -1,22 +1,17 @@
 <template>
   <div class="login-container">
-    <!--
-      el-form 表单组件
-      每个表单项都必须使用 el-form-item 组件包裹
-     -->
-
     <div class="login-form-wrap">
       <div class="login-head">
         <div class="logo">头条</div>
       </div>
       <el-form class="login-form" ref="login-form" :model="user" :rules="formRules">
-        <el-form-item>
+        <el-form-item prop="code">
           <el-input v-model="user.mobile" placeholder="请输入手机号"></el-input>
         </el-form-item>
-        <el-form-item>
+        <el-form-item prop="code">
           <el-input v-model="user.code" placeholder="请输入验证码"></el-input>
         </el-form-item>
-        <el-form-item>
+        <el-form-item prop="agree">
           <el-checkbox v-model="user.agree"
           >我已阅读并同意用户协议和隐私条款</el-checkbox
           >
@@ -44,6 +39,7 @@ export default {
         code: '246810', // 验证码
         agree: false // 是否同意协议
       },
+      // checked: false, // 是否同意协议的选中状态
       loginLoading: false, // 登录的 loading 状态
       formRules: { // 表单验证规则配置
         // 要验证的数据名称：规则列表[]
@@ -157,9 +153,6 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  //background: pink;
-  //background: url('./login_bg.jpg') no-repeat;
-  //background-size: cover;
   .login-form-wrap {
     min-width: 300px;
     padding: 30px 50px 10px;
@@ -173,9 +166,6 @@ export default {
         line-height: 57px;
         font-size: 24px;
         text-align: center;
-        //background: red;
-        //background: url('./logo_index.png') no-repeat;
-        //background-size: contain;
       }
     }
     .login-form {

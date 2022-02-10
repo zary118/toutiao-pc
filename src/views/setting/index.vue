@@ -1,12 +1,10 @@
 <template>
-  <div class="home-container">
-    首页
-  </div>
+  <div class="fans-container">个人设置</div>
 </template>
 
 <script>
 export default {
-  name: 'HomeIndex',
+  name: 'settingIndex',
   props: {},
   components: {},
   data () {
@@ -18,7 +16,6 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-.home-container {
-}
+<style scoped>
+
 </style>

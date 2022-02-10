@@ -1,12 +1,10 @@
 <template>
-  <div class="home-container">
-    首页
-  </div>
+<div class="comment-container">评论管理</div>
 </template>
 
 <script>
 export default {
-  name: 'HomeIndex',
+  name: 'CommentIndex',
   props: {},
   components: {},
   data () {
@@ -18,7 +16,6 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-.home-container {
-}
+<style scoped>
+
 </style>
