@@ -29,7 +29,7 @@
       <span slot="title">评论管理</span>
     </el-menu-item>
     <el-menu-item index="/fans">
-    <i class="el-icon-setting"></i>
+    <i class="iconfont icon-liwuhuodong"></i>
     <span slot="title">粉丝管理</span>
   </el-menu-item>
     <el-menu-item index="/setting">
@@ -58,5 +58,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
+.iconfont {
+  margin-right: 10px;
+  padding-left: 5px;
+}
 </style>
