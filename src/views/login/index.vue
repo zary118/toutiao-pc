@@ -78,7 +78,16 @@ export default {
   },
   computed: {},
   watch: {},
-  created () {},
+  created () {
+    const that = this
+    document.onkeypress = function (e) {
+      var keycode = document.all ? event.keyCode : e.which
+      if (keycode === 13) {
+        that.onLogin()// 登录方法名
+        return false
+      }
+    }
+  },
   mounted () {},
   methods: {
     onLogin () {
