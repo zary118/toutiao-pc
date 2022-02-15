@@ -3,6 +3,8 @@
  */
 import axios from 'axios'
 import JSONbig from 'json-bigint'
+import router from '../router'
+import { Message } from 'element-ui'
 
 // JSONbig.parse()
 // JSONbig.stringify()
@@ -41,7 +43,27 @@ request.interceptors.request.use(function (config) {
   return Promise.reject(error)
 })
 // 响应拦截器
-
+axios.interceptors.response.use(function (response) {
+  // 任何2xx范围内的状态代码都会触发此函数
+  return response
+}, function (error) {
+  // 任何超出2xx范围的状态码都会触发此函数
+  if (error.response && error.response.status === 401) {
+    window.localStorage.removeItem('user')
+    router.push('/login')
+    Message.error('登录状态无效，请重新登录')
+  } else if (error.response.status === 403) {
+    Message({
+      type: 'warning',
+      message: '没有操作权限'
+    })
+  } else if (error.response.status === 400) {
+    Message('参数错误,请检查请求参数')
+  } else if (error.response.status >= 500) {
+    Message.error('服务端内部异常，请稍后重试')
+  }
+  return Promise.reject(error)
+})
 // 导出请求方法
 export default request
 
