@@ -1,16 +1,17 @@
 <template>
   <!-- 1. 为 ECharts 准备一个具备大小（宽高）的画布容器 DOM -->
-  <div ref="main" style="width: 800px;height:600px;"></div>
+  <div ref="map" style="width: 800px;height:600px;"></div>
 </template>
 
 <script>
 // 2. 加载 echarts
 import * as echarts from 'echarts'
-
 // 如果使用依赖百度地图的图表，则必须
 //  1、加载百度地图的 JavaScript SDK 脚本文件
 //  2、加载 echarts 百度地图的扩展
 import 'echarts/dist/extension/bmap'
+// 如果是 webpack 打包，也可以 require 引入
+// require('echarts/extension/bmap/bmap')
 
 export default {
   name: 'MapDemo',
@@ -24,7 +25,7 @@ export default {
   created () {},
   mounted () {
     // 3. 初始化图表
-    var myChart = echarts.init(this.$refs.main)
+    var myChart = echarts.init(this.$refs.map)
 
     // 4. 指定图表的配置项和数据
     var data = [
@@ -411,7 +412,6 @@ export default {
       武汉: [114.31, 30.52],
       大庆: [125.03, 46.58]
     }
-
     var convertData = function (data) {
       var res = []
       for (var i = 0; i < data.length; i++) {
@@ -425,7 +425,6 @@ export default {
       }
       return res
     }
-
     var option = {
       title: {
         text: '全国主要城市空气质量 - 百度地图',

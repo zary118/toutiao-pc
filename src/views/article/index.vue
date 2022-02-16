@@ -161,16 +161,6 @@
           </template>
         </el-table-column>
       </el-table>
-      <!-- /数据列表 -->
-
-      <!-- 列表分页 -->
-      <!--
-        total 用来设定总数据的条数
-        它默认按照 10 条每页计算总页码
-        page-size 每页显示条目个数，支持 .sync 修饰符，默认每页 10 条
-
-        90 3 90 / 3 = 30
-       -->
       <el-pagination
         layout="prev, pager, next"
         background
@@ -198,16 +188,6 @@ export default {
   props: {},
   data () {
     return {
-      form: {
-        name: '',
-        region: '',
-        date1: '',
-        date2: '',
-        delivery: false,
-        type: [],
-        resource: '',
-        desc: ''
-      },
       articles: [], // 文章数据列表
       articleStatus: [
         { status: 0, text: '草稿', type: 'info' }, // 0

@@ -12,9 +12,7 @@
           <el-input v-model="user.code" placeholder="请输入验证码"></el-input>
         </el-form-item>
         <el-form-item prop="agree">
-          <el-checkbox v-model="user.agree"
-          >我已阅读并同意用户协议和隐私条款</el-checkbox
-          >
+          <el-checkbox v-model="user.agree">我已阅读并同意用户协议和隐私条款</el-checkbox>
         </el-form-item>
         <el-form-item>
           <el-button class="login-btn" type="primary" :loading="loginLoading" @click="onLogin"

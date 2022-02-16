@@ -24,7 +24,6 @@
             :is-show-add="false"
             :is-show-action="false"
             is-show-selected
-            :foo="666"
             ref="image-list"
           />
         </el-tab-pane>
@@ -130,6 +129,9 @@ export default {
 </script>
 
 <style scoped lang="less">
+.upload-cover {
+  margin-right: 10px;
+}
 .cover-wrap {
   width: 150px;
   height: 120px;

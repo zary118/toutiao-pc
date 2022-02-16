@@ -4,10 +4,10 @@
     <div ref="main" style="width: 600px;height:400px;"></div>
 
     <h2>地图图表示例</h2>
-    <map-demo/>
+    <map-demo />
 
     <h2>纯粹的百度地图示例</h2>
-    <bmap-demo/>
+    <bmap-demo />
   </div>
 </template>
 

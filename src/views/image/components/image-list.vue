@@ -42,14 +42,6 @@
           v-if="isShowSelected && selected === index"
         ></div>
         <div v-if="isShowAction" class="image-action">
-          <!--
-            class 样式绑定
-             {
-                CSS类名: 布尔值
-             }
-             true：作用类名
-             false：不作用类名
-           -->
           <el-button
             type="warning"
             :icon="img.is_collected ? 'el-icon-star-on' : 'el-icon-star-off'"
@@ -129,7 +121,7 @@
 import {
   getImages,
   collectImage,
-  deleteImage
+  deleteImages
 } from '@/api/image'
 
 export default {
@@ -138,11 +130,11 @@ export default {
   // 使用对象的方式定义 prop，更严谨，功能更丰富，强烈建议在项目中使用
   // 参考文档：https://cn.vuejs.org/v2/guide/components-props.html#Prop-%E9%AA%8C%E8%AF%81
   props: {
-    foo: {
-      type: Number,
-      // required: true,
-      default: 123
-    },
+    // foo: {
+    //   type: Number,
+    //   // required: true,
+    //   default: 123
+    // },
     // 是否显示添加素材
     isShowAdd: {
       type: Boolean, // 布尔值
@@ -246,7 +238,7 @@ export default {
 
     onDelete (img) {
       img.loading = true
-      deleteImage(img.id).then(res => {
+      deleteImages(img.id).then(res => {
         // 重新加载数据列表
         this.loadImages(this.page)
         img.loading = false
